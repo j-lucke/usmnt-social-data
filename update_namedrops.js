@@ -19,9 +19,9 @@ function yesterday(){
 
 async function main2() {
   console.log('asking postgres for players...')
-  knex.select('*')
+  knex.select('first_name', 'last_name', 'twitter_name', 'id')
     .from('name_drops')
-    //.where('id', '<', 5)
+    .where('id', '<', 5)
     .then( playerList => {
       const promises = []
       playerList.forEach( player => {
